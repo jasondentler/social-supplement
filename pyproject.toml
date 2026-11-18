@@ -1,0 +1,32 @@
+[project]
+name = "social-supplement-mcp"
+version = "0.3.0"
+description = "Extensible collection of supplemental social-media MCP tools"
+requires-python = ">=3.11"
+dependencies = [
+  "mcp[cli]>=2.0,<3",
+  "httpx>=0.27,<1",
+  "Pillow>=11,<13",
+  "keyring>=25,<27",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8,<10", "ruff>=0.9,<1"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+
+[tool.ruff]
+target-version = "py311"
+line-length = 120
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F"]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+py-modules = ["server", "threads_media"]
